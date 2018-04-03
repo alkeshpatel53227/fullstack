@@ -1,0 +1,5 @@
+c:\users\alkes_000\documents\visual studio 2015\Projects\AlkeshPatelFullStackMaster\AlkeshPatelFullStackLib\bin\Debug\AlkeshPatelFullStackLib.dll
+c:\users\alkes_000\documents\visual studio 2015\Projects\AlkeshPatelFullStackMaster\AlkeshPatelFullStackLib\bin\Debug\AlkeshPatelFullStackLib.pdb
+c:\users\alkes_000\documents\visual studio 2015\Projects\AlkeshPatelFullStackMaster\AlkeshPatelFullStackLib\obj\Debug\AlkeshPatelFullStackLib.csprojResolveAssemblyReference.cache
+c:\users\alkes_000\documents\visual studio 2015\Projects\AlkeshPatelFullStackMaster\AlkeshPatelFullStackLib\obj\Debug\AlkeshPatelFullStackLib.dll
+c:\users\alkes_000\documents\visual studio 2015\Projects\AlkeshPatelFullStackMaster\AlkeshPatelFullStackLib\obj\Debug\AlkeshPatelFullStackLib.pdb
