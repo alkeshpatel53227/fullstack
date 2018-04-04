@@ -85,9 +85,7 @@
                     <div id="levelDiv"></div>
                 </div>
             </div>
-            <div class="row" style="text-align: center;">
-                <canvas id="triangle" height="1000" width="1000">Triangle</canvas>
-            </div>
+            
         </div>
     </div>
 </body>
