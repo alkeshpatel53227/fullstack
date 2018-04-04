@@ -28,6 +28,7 @@
                     <h2>Alkesh Patel</h2>
                     <h4>Code Test</h4>
                     <h4>Technogies: .Net, C#, Angular, Bootstrap, Ajax, Jquery, SQL</h4>
+                    <a href="https://github.com/alkeshpatel53227/fullstack">Go To Code</a>
                 </div>
             </div>
             <div class="row">
@@ -48,7 +49,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="sideOne">Enter Category ID:</label>
-                        <input type="number" step="0.01"
+                        <input type="number" step="1"
                             pattern="\d+(\.\d*)?"
                             class="form-control" id="sideOne"
                             ng-model="firstValue">
@@ -57,7 +58,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="sideTwo">Enter Category Level:</label>
-                        <input type="number" step="0.01"
+                        <input type="number" step="1"
                             pattern="\d+(\.\d*)?"
                             class="form-control" id="sideTwo"
                             ng-model="secondValue">
