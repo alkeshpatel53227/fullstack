@@ -25,6 +25,7 @@ namespace AlkeshPatelFullStackLib.dal
                 using (var conn = DBConnection.GetConnection())
                 {
                     using (SqlCommand comm = new SqlCommand(statement, conn))
+                    {
                         try
                         {
                             using (SqlDataReader dr = comm.ExecuteReader())
@@ -41,7 +42,7 @@ namespace AlkeshPatelFullStackLib.dal
                                         }
                                         else
                                         {
-                                            catKeyword = GetParentCategoryKeyWord(parentCategoryId, conn);
+                                            catKeyword = GetParentCategoryKeyWord(parentCategoryId);
                                         }
                                     }
                                 }
@@ -51,7 +52,8 @@ namespace AlkeshPatelFullStackLib.dal
                         {
 
                         }
-                    conn.Close();
+                        conn.Close();
+                    }
                 }
             }
             catch (Exception ex)
@@ -61,48 +63,56 @@ namespace AlkeshPatelFullStackLib.dal
             return !string.IsNullOrEmpty(catName) ? string.Format(@"ParentCategoryID={0}, Name={1}, Keyword={2}", parentCategoryId, catName, catKeyword) : "No Information found for this category Id.";
         }
 
-        public string GetParentCategoryKeyWord(string parentCatId, SqlConnection conn)
+        public string GetParentCategoryKeyWord(string parentCatId)
         {
             string parentCategoryId = "";
             string catKeyword = "";
             try
             {
                 string statement = @"Select top 1 * from AlkeshPatel where CategoryId =" + parentCatId;
-                using (SqlCommand comm = new SqlCommand(statement, conn))
-                    try
+                using (var conn = DBConnection.GetConnection())
+                {
+                    using (SqlCommand comm = new SqlCommand(statement, conn))
                     {
-                        using (SqlDataReader dr = comm.ExecuteReader())
-                        {
-                            if (dr.HasRows)
+                        
+                            try
                             {
-                                while (dr.Read())
+                                using (SqlDataReader dr = comm.ExecuteReader())
                                 {
-                                    parentCategoryId = dr["ParentCategoryId"].ToString();
-                                    if (dr["Keyword"] != DBNull.Value && !string.IsNullOrEmpty(dr["Keyword"].ToString()))
+                                    if (dr.HasRows)
                                     {
-                                        return dr["Keyword"].ToString();
-                                    }
-                                    else
-                                    {
-                                        catKeyword = GetParentCategoryKeyWord(parentCategoryId, conn);
-                                    }
+                                        while (dr.Read())
+                                        {
+                                            parentCategoryId = dr["ParentCategoryId"].ToString();
+                                            if (dr["Keyword"] != DBNull.Value && !string.IsNullOrEmpty(dr["Keyword"].ToString()))
+                                            {
+                                                return dr["Keyword"].ToString();
+                                            }
+                                            else
+                                            {
+                                                catKeyword = GetParentCategoryKeyWord(parentCategoryId);
+                                            }
 
+                                        }
+                                    }
                                 }
                             }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
 
+                            catch (Exception ex)
+                            {
+
+                            }
+                            // conn.Close();
+                        
                     }
-                conn.Close();
+                }
 
             }
             catch (Exception ex)
             {
 
             }
-            return "";
+            return catKeyword;
         }
 
         /***
